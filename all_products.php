@@ -63,11 +63,11 @@ else
 	                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 products">
 	                        	<div class="well">
 
-	                            	<a href="details.php?product_detail=<?php echo $row_product['pro_id']; ?>"><img class="img-responsive" style="width: 200px;height:150px;" src="images/<?php echo $row['pro_image1']; ?>" alt="propeller"></a>
+	                            	<a href="details.php?product_detail=<?php echo $row_product['pro_id']; ?>"><img class="img-responsive" style="width: 200px;height:150px;" src="images/<?php echo $row_product['pro_image1']; ?>" alt="propeller"></a>
 
 	                                <h4><?php echo $row_product['pro_name']; ?></h4>
                                     <p style="color:grey"><?php echo $row_product['brand_name']; ?></p>
-	                                <p><?php echo $row_product['cat_name']; ?><span class="price"><?php echo $row_product['pro_price']; ?></span></p>
+	                                <p><?php echo $row_product['cat_name']; ?><span class="price">RS. <?php echo $row_product['pro_price']; ?></span></p>
 	                        	</div>
 	                        </div> 
                             <?php 
