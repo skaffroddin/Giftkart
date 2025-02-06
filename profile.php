@@ -17,7 +17,7 @@ if (isset($_POST['update_profile'])){
       $buyer_phone = $_POST['buyer_phone'];
       $postal_code = $_POST['postal_code'];
       
-      $sql = "UPDATE buyers SET buyAyeshaer_name = '$buyer_name',buyer_email = '$buyer_email',buyer_country = '$buyer_country',buyer_city = '$buyer_city',buyer_address = '$buyer_address',buyer_phone = '$buyer_phone',postal_code = '$postal_code'WHERE buyer_id = '$buyer_id' ";
+      $sql = "UPDATE buyers SET buyer_name = '$buyer_name',buyer_email = '$buyer_email',buyer_country = '$buyer_country',buyer_city = '$buyer_city',buyer_address = '$buyer_address',buyer_phone = '$buyer_phone',postal_code = '$postal_code'WHERE buyer_id = '$buyer_id' ";
       
       if ($con->query($sql) === TRUE) {
             echo "<script>alert('Profile updated Successfully')</script>";
@@ -95,12 +95,7 @@ $resultcat_count =  mysqli_num_rows($result_buy);
                             <!-- <p class="text-center hiplink"><a href="all_products.php">SHOW MORE</a></p>  -->        
                          </div>
                     </div></center>
-               <!--  <div class="container-fluid fbaner">
-                   Ayesha
-                    <div class="col-md-12">
-                        <img src="images/3.png">
-                    </div>
-                </div> -->
+             
 
                 </footer>
                 <style type="text/css">

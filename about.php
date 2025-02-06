@@ -6,7 +6,7 @@
                     <div class="container">
                     <br/><br/>
             		<h2><b> ABOUT US:</b></h2>
-                    <h3>About Online Gift Shop</h3>
+                    <h3>About Online GiftKart</h3>
                     
                     <p style="text-align:justify;">Online shopping is a form of electronic commerce which allows consumers to directly buy goods or services from a seller over the Internet using a web browser or a mobile app. Consumers find a product of interest by visiting the website of the retailer directly or by searching among alternative vendors using a shopping search engine, which displays the same product's availability and pricing at different e-retailers. As of 2020, customers can shop online using a range of different computers and devices, including desktop computers, laptops, tablet computers and smartphones.
 

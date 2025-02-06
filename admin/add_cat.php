@@ -10,7 +10,7 @@ if(!isset($_SESSION["user"]))
 }
 
 
-include("connection.php");
+@include("connection.php");
 
 if(isset($_POST['add_cat'])){
 	

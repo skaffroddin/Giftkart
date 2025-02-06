@@ -13,7 +13,7 @@ if(!isset($_SESSION["user"]))
 
 
 
-include("connection.php");
+@include("connection.php");
 
 if(isset($_POST['add_brand'])){
   
@@ -55,7 +55,6 @@ if(isset($_POST['add_brand'])){
 
 
 
-  <!-- Text input-->
   <div class="form-group">
     <label class="col-md-4 control-label" for="product_name">BRAND NAME</label>  
     <div class="col-md-4">

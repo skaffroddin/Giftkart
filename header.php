@@ -65,7 +65,11 @@ class paymentlineritem {
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span> 
                             </button>
-      						<a class="navbar-brand" href="index.php"><img src="images/logo3.png" alt="" style="margin-top: -40px;"></a>
+                            <a class="navbar-brand" href="index.php" style="display: flex; align-items: center; gap: 10px;">
+    <span style="font-size: 35px; color: white; font-family: Arial, sans-serif;">GiftKart</span>
+</a>
+
+
     					</div>
     					<ul class="nav navbar-nav">
       						<li><a href="index.php">Home</a></li>

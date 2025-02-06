@@ -16,12 +16,12 @@ $result = $con->query($sql);
 $category = $con->query($categories);
 
 if (isset($_POST['add_product'])) {
-    // Sanitize inputs
-    $name = mysqli_real_escape_string($con, $_POST['name']);
-    $price = mysqli_real_escape_string($con, $_POST['price']);
-    $product_category = mysqli_real_escape_string($con, $_POST['category']);
-    $brand = mysqli_real_escape_string($con, $_POST['brand']);
-    $description = mysqli_real_escape_string($con, $_POST['desc']);
+  
+    $name =  $_POST['name'];
+    $price = $_POST['price'];
+    $product_category =  $_POST['category'];
+    $brand = $_POST['brand'];
+    $description =  $_POST['desc'];
 
     // Handle file upload
     $filename = $_FILES['image']['name'];
@@ -32,7 +32,7 @@ if (isset($_POST['add_product'])) {
 
   move_uploaded_file($tempname, $folder);
 
-    // Insert product into the database
+  
     $add_product_query = "INSERT INTO products (pro_name, pro_price, cat_id, brand_id, pro_des, pro_image1, pro_image2) 
                           VALUES ('$name', '$price', $product_category, $brand, '$description', '$folder', '')";
 
@@ -124,5 +124,5 @@ if (isset($_POST['add_product'])) {
 </div>
 
 <?php
-include('footer.php');
+@include('footer.php');
 ?>
