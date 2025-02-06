@@ -41,7 +41,7 @@ if(!isset($_SESSION["user"]))
 
               <?php
 
-  include("connection.php");
+  @include("connection.php");
   
   $sql = "select products.*, categories.cat_name , brands.brand_name from products INNER JOIN categories ON categories.cat_id = products.cat_id INNER JOIN brands ON brands.brand_id=products.brand_id";
  $result = mysqli_query($con, $sql);
@@ -63,7 +63,7 @@ if(!isset($_SESSION["user"]))
                   <td><?php echo $row['brand_name'];  ?></td>
                    <td><?php echo $row['pro_price'];  ?></td>
                   
-                <td><img width="80" src="images/<?php echo $row['pro_image1'] ?>"></td>
+                <td><img width="80" src="../images/<?php echo $row['pro_image1'] ?>"></td>
                  <td> Active </td>
                  <td> 
                   <a href="edit_product.php?edit_product=<?php echo $row['pro_id']; ?>"> <i class="fa fa-edit"></i></a>

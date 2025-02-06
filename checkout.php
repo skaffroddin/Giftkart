@@ -1,7 +1,7 @@
 <?php
 @include('header.php');
 
-include("connection.php");
+@include("connection.php");
 if(!isset($_SESSION["user"]))
 {
       echo "<script>window.open('login_register.php','_self')</script>";
@@ -62,7 +62,7 @@ if(isset($_POST['confirm_order']))
                                 <th>Product</th>
                                 <th>Qty</th>
                                 <th>Price</th>
-                                <th>T.Price</th>
+                                <th>Total</th>
 
                                
                               </tr>
@@ -87,6 +87,7 @@ if(isset($_POST['confirm_order']))
                            
                            
                            <?php
+                           
                                     $tPrice=$orderlineitem->price*$orderlineitem->quantity;
                             $totalamout = $totalamout + $tPrice;
                             }

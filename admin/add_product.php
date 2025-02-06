@@ -26,7 +26,7 @@ if (isset($_POST['add_product'])) {
     // Handle file upload
     $filename = $_FILES['image']['name'];
     $tempname = $_FILES['image']['tmp_name'];
-    $folder = 'products/' . $filename;
+    $folder = '../images/products/' . $filename;
 
    
 

@@ -4,7 +4,7 @@
 
 @include('header.php');
 
-include("connection.php");
+@include("connection.php");
 
 if(isset($_POST['quantity'])){
 
@@ -67,7 +67,7 @@ if(isset($_POST['quantity'])){
 
                                    <div class="bg">
                             <div class="col-md-3 img">
-                                <img class="img-responsive" style="height:200px;" src="images/<?php echo $row['pro_image1']; ?>">
+                                <img class="img-responsive" style="height:200px;" src="images/<?php echo $row_product_detail['pro_image1']; ?>">
                             </div>
                             <div class="col-md-3 hd walls">
                                 <h6><?php echo $orderlineitem->category ?></h6>

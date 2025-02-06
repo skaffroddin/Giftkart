@@ -18,7 +18,7 @@
                     <div class="container a1">
                         <h1><?php echo $row_product_detail['pro_name']; ?></h1>
                         <div class="col-md-5">
-                            <a href="#"><img class="img-responsive" src="images/products/<?php echo $row_product_detail['pro_image1']; ?>" alt="image" width="100%"></a>
+                            <a href="#"><img class="img-responsive" src="images/<?php echo $row_product_detail['pro_image1'] ?>" alt="image" width="60%"></a>
                         </div>
                         <div class="col-md-7 details walls">
                             <h4>Description</h4>
