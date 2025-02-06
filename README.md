@@ -66,3 +66,4 @@ GiftKart is a vibrant and user-friendly e-commerce platform for purchasing gifts
 - **Backend**: PHP (Laravel Framework)
 - **Database**: MySQL
 - **Version Control**: Git, GitHub
+- **Live link- giftkart.infy.uk
