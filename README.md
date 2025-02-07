@@ -58,6 +58,11 @@ GiftKart is a vibrant and user-friendly e-commerce platform for purchasing gifts
   - Total sales or revenue (if implemented).
   - Pending and completed orders.
 
+### ChatBot
+- Chatbot
+  
+
+
 ---
 
 ## Tech Stack
