@@ -111,9 +111,9 @@ class paymentlineritem {
 
                                         $totalamount = $totalamount + $tPrice;
                                     }
-                                    echo $totalamount . " Rs";
+                                    echo " Rs " . $totalamount;
                                 }else{
-                                    echo "0 Rs";
+                                    echo "Rs. 0";
                                 }
                                     ?>
                                 
@@ -125,3 +125,7 @@ class paymentlineritem {
                    </div>  
 				</nav>
 </head>
+
+<body>
+    <!-- Chatbot -->
+<script defer src="https://static.getbutton.io/widget/bundle.js?id=CfKXb" ></script></body>

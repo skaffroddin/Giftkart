@@ -21,7 +21,7 @@ if(isset($_POST['quantity'])){
 
         $row_product_detail = mysqli_fetch_array($result_product);
 
-        $orderlineitem = new orderlineitem($row_product_detail['pro_id'],$_POST['quantity'], $row_product_detail['pro_price'], $row_product_detail['cat_name'], $row_product_detail['pro_name']);
+        $orderlineitem = new orderlineitem($row_product_detail['pro_id'],$_POST['quantity'], $row_product_detail['pro_price'], $row_product_detail['cat_name'], $row_product_detail['pro_name'], $row_product_detail['pro_image1']);
 
         $Order = array($orderlineitem);    
 
@@ -36,7 +36,7 @@ if(isset($_POST['quantity'])){
 
         $row_product_detail = mysqli_fetch_array($result_product);
 
-        $orderlineitem = new orderlineitem($row_product_detail['pro_id'],$_POST['quantity'], $row_product_detail['pro_price'], $row_product_detail['cat_name'], $row_product_detail['pro_name']);
+        $orderlineitem = new orderlineitem($row_product_detail['pro_id'],$_POST['quantity'], $row_product_detail['pro_price'], $row_product_detail['cat_name'], $row_product_detail['pro_name'], $row_product_detail['pro_image1']);
 
         $Order =  $_SESSION['Order'];
         array_push($Order,$orderlineitem);
@@ -67,7 +67,8 @@ if(isset($_POST['quantity'])){
 
                                    <div class="bg">
                             <div class="col-md-3 img">
-                                <img class="img-responsive" style="height:200px;" src="images/<?php echo $row_product_detail['pro_image1']; ?>">
+                            <img class="img-responsive" style="height:200px;" src="images/<?php echo $row_product_detail['pro_image1'] ?>">
+
                             </div>
                             <div class="col-md-3 hd walls">
                                 <h6><?php echo $orderlineitem->category ?></h6>
@@ -89,7 +90,7 @@ if(isset($_POST['quantity'])){
                                                 <input type='button' value='+' class='qtyplus' field='quantity' />
                                             </form>
                                         </td>
-                                        <td> <?php echo $orderlineitem->quantity * $orderlineitem->price ?>  </td>
+                                        <td> <?php echo " Rs. ". $orderlineitem->quantity * $orderlineitem->price ?>  </td>
                                     </tr>
                                 </table>
                             </div>

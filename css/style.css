@@ -56,7 +56,7 @@
         .mbaner form button:hover {background-color: #ff4f05;color: white; }
         .mbaner form button:focus {background-color: #ff4f05;color: white; }
         .mbaner form button:active {background-color: #ff4f05;color: white; }
-        .footer{background-color: #002347 !important; min-height: 215px;padding-top: 30px;}
+        .footer{background-color: #002347 !important; min-height: 215px;padding-top: 30px; margin-top: 50px;}
         .footer .fh5{font-size: 18px; color: #868ca7; font-family: sans-serif;}
         .footer .fh5 a{color: white; border-bottom: 2px solid #ff3100}
         .footer .fh5 a:hover{text-decoration: none; border: none; transition: ease-in 0.6s;}
