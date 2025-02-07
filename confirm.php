@@ -3,7 +3,7 @@
 
 // Start the session
 // session_start();
-@include('header.php');
+include('header.php');
 include("connection.php");
 
 if(isset($_SESSION["Order"]))

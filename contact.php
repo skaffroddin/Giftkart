@@ -1,5 +1,5 @@
 <?php 
-@include('header.php');
+include('header.php');
 
 
 include("connection.php");
@@ -69,6 +69,6 @@ if(isset($_POST["message_submit"]))
                 </div>
 
     <?php
-    @include('footer.php');
+    include('footer.php');
     ?>
                 

@@ -1,7 +1,7 @@
 <?php
 
 
-@include('header.php');
+include('header.php');
 
   include("connection.php");
     if(isset($_GET['product_detail'])){
@@ -130,5 +130,5 @@
 
                
 <?php
-@include('footer.php');
+include('footer.php');
 ?>

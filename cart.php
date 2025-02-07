@@ -2,9 +2,9 @@
 
 
 
-@include('header.php');
+include('header.php');
 
-@include("connection.php");
+include("connection.php");
 
 if(isset($_POST['quantity'])){
 
@@ -170,7 +170,7 @@ if(isset($_POST['quantity'])){
 
 <?php
 
-@include('footer.php');
+include('footer.php');
 
 ?>
 

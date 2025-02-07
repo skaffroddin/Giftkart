@@ -1,6 +1,6 @@
 <?php
 
-@include('header.php');
+include('header.php');
 
 include("connection.php");
 
@@ -100,7 +100,7 @@ else
 
 <?php
 
-@include('footer.php');
+include('footer.php');
 
 
 ?>

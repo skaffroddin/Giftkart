@@ -130,6 +130,6 @@ while ($row2 = mysqli_fetch_array($result2)) {
 
 <?php
 
-@include('footer.php');
+include('footer.php');
 
 ?>

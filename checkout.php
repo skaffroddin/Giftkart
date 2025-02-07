@@ -1,7 +1,7 @@
 <?php
-@include('header.php');
+include('header.php');
 
-@include("connection.php");
+include("connection.php");
 if(!isset($_SESSION["user"]))
 {
       echo "<script>window.open('login_register.php','_self')</script>";
@@ -160,6 +160,6 @@ if(isset($_POST['confirm_order']))
 
 <?php
 
-@include('footer.php');
+include('footer.php');
 
 ?>

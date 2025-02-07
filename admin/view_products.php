@@ -9,7 +9,7 @@ if(!isset($_SESSION["user"]))
       die();
 }
 
-@include('header.php')
+include('header.php')
 
 ?>
 

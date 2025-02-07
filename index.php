@@ -1,5 +1,5 @@
 <?php 
-@include('header.php');
+include('header.php');
 include "connection.php";
 
 $sql = "SELECT products.*, categories.cat_name FROM products, categories WHERE products.cat_id = categories.cat_id";
@@ -124,4 +124,4 @@ $resultbrand_count = mysqli_num_rows($result_brand);
   </div>
           </div>
 
-<?php @include('footer.php'); ?>
+<?php include('footer.php'); ?>

@@ -70,4 +70,4 @@ GiftKart is a vibrant and user-friendly e-commerce platform for purchasing gifts
 - **Live link- giftkart.infy.uk
 =======
 - **Version Control**: Git, GitHub Action
->>>>>>> f79cc10 (slider)
+
