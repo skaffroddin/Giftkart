@@ -1,6 +1,26 @@
 <?php
 
-@include('header.php');
+include('header.php');
+require __DIR__ . '/vendor/autoload.php';
+include"connection.php";
+
+use League\OAuth2\Client\Provider\Google;
+use League\OAuth2\Client\Provider\Facebook;
+
+// Google OAuth Configuration
+$googleProvider = new Google([
+    'clientId'     => 'YOUR_GOOGLE_CLIENT_ID',
+    'clientSecret' => 'YOUR_GOOGLE_CLIENT_SECRET',
+    'redirectUri'  => 'http://localhost/Projects/Giftkart/google-callback.php',
+]);
+
+// Facebook OAuth Configuration
+$facebookProvider = new Facebook([
+    'clientId'        => 'YOUR_FACEBOOK_APP_ID',
+    'clientSecret'    => 'YOUR_FACEBOOK_APP_SECRET',
+    'redirectUri'     => 'http://localhost/Projects/Giftkart/facebook-callback.php',
+    'graphApiVersion' => 'v15.0', // Use the latest version of the Graph API
+]);
 
 if(isset($_SESSION["user"]))
 {
@@ -8,7 +28,7 @@ if(isset($_SESSION["user"]))
       die();
 }
 
-include"connection.php";
+
 
 
 if(isset($_POST['loginsubmit'])){
@@ -32,7 +52,13 @@ else
 
 
 
+// Generate Google login URL
+$googleAuthUrl = $googleProvider->getAuthorizationUrl();
+$_SESSION['oauth2state_google'] = $googleProvider->getState();
 
+// Generate Facebook login URL
+$facebookAuthUrl = $facebookProvider->getAuthorizationUrl();
+$_SESSION['oauth2state_facebook'] = $facebookProvider->getState();
 
 ?>
 
@@ -57,6 +83,17 @@ else
                                     <button type="submit" name="loginsubmit" class="btn btn-success">LOGIN</button>
                                   
                                 </form>
+                                <p class="text-center">
+    <a href="forgot-password.php" class="text-primary">Forgot Password?</a>
+</p>
+
+                                <hr>
+                <a href="<?= $googleAuthUrl ?>" class="btn btn-primary btn-block">
+                    Login with Google
+                </a>
+                <a href="<?= $facebookAuthUrl ?>" class="btn btn-info btn-block">
+                    Login with Facebook
+                </a>
                         </div>
                        
                     </div>
