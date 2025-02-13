@@ -7,7 +7,7 @@ session_start();
 $client = new Google_Client();
 $client->setClientId('447405879086-3c54rtubopq6enrq6pphdm7rignffkqm.apps.googleusercontent.com');
 $client->setClientSecret('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');
-$client->setRedirectUri('http://localhost/Projects/Giftkart/google-callback.php');
+$client->setRedirectUri('http://giftkart.infy.uk/google-callback.php');
 $client->addScope('email');
 $client->addScope('profile');
 
