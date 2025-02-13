@@ -1,25 +1,18 @@
 <?php
-require 'vendor/autoload.php';
-
-use League\OAuth2\Client\Provider\Google;
+require_once 'vendor/autoload.php'; // Load Composer's autoload file
 
 session_start();
 
-// Google OAuth Config
-$provider = new Google([
-    'clientId'     => 'YOUR_GOOGLE_CLIENT_ID',
-    'clientSecret' => 'YOUR_GOOGLE_CLIENT_SECRET',
-    'redirectUri'  => 'http://localhost/Projects/Giftkart/google-callback.php',
-]);
+// Create a new Google Client
+$client = new Google_Client();
+$client->setClientId('447405879086-3c54rtubopq6enrq6pphdm7rignffkqm.apps.googleusercontent.com'); // Replace with your Google Client ID
+$client->setClientSecret('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'); // Replace with your Google Client Secret
+$client->setRedirectUri('http://localhost/Projects/Giftkart/google-callback.php'); // Replace with your callback URL
+$client->addScope('email');
+$client->addScope('profile');
 
-// Generate Google Authorization URL
-if (!isset($_GET['code'])) {
-    $authUrl = $provider->getAuthorizationUrl();
-    $_SESSION['oauth2state'] = $provider->getState();
-    header('Location: ' . $authUrl);
-    exit;
-}
+$login_url = $client->createAuthUrl();
 
-// If we get here, something went wrong
-echo "Unable to generate authorization URL.";
-
+// Redirect the user to Google's login page
+header("Location: $login_url");
+exit();

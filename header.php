@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 class orderlineitem {
     public $pro_id = 0;
     public $quantity = 0;
@@ -76,8 +77,7 @@ class paymentlineritem {
                             <li><a href="all_products.php">Poducts</a></li>
       						<li><a href="about.php">About Us</a></li>
                             <li><a href="contact.php">Contact Us</a></li>
-                            <!-- <li><a href="my_account.php">My Account</a></li> -->
-                            <!-- <li><a href="my_account.php">Login/Logout</a></li> -->
+
       						
     					</ul>
                         <div class="info">

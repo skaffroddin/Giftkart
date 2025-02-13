@@ -3,7 +3,6 @@
 @include('header.php');
 include"connection.php";
 
-// upset($_Session('Order'));
 
 if (isset($_POST['update_profile'])){
 
@@ -15,9 +14,8 @@ if (isset($_POST['update_profile'])){
       $buyer_city = $_POST['buyer_city'];
       $buyer_address = $_POST['buyer_address'];
       $buyer_phone = $_POST['buyer_phone'];
-      $postal_code = $_POST['postal_code'];
       
-      $sql = "UPDATE buyers SET buyer_name = '$buyer_name',buyer_email = '$buyer_email',buyer_country = '$buyer_country',buyer_city = '$buyer_city',buyer_address = '$buyer_address',buyer_phone = '$buyer_phone',postal_code = '$postal_code'WHERE buyer_id = '$buyer_id' ";
+      $sql = "UPDATE buyers SET buyer_name = '$buyer_name',buyer_email = '$buyer_email',buyer_country = '$buyer_country',buyer_city = '$buyer_city',buyer_address = '$buyer_address',buyer_phone = '$buyer_phone'WHERE buyer_id = '$buyer_id' ";
       
       if ($con->query($sql) === TRUE) {
             echo "<script>alert('Profile updated Successfully')</script>";
@@ -41,8 +39,6 @@ $resultcat_count =  mysqli_num_rows($result_buy);
 
 ?>
 
-              
-                
                 <div class="banner3">
                     <div class="container">
                         
@@ -78,8 +74,7 @@ $resultcat_count =  mysqli_num_rows($result_buy);
                                   <label>Phone</label><br>
                                   <input type="number" name="buyer_phone" value="<?php echo $row['buyer_phone'] ?>"><br><br>
 
-                                  <label>Postal Code</label><br>
-                                  <input type="number" name="postal_code" value="<?php echo $row['postal_code'] ?>"><br><br>
+                                  
                                    
                                   <input type="submit" name="update_profile" value="Update Profile" class="btn btn-secondary" style="color: black">
                                 </form>
@@ -92,7 +87,7 @@ $resultcat_count =  mysqli_num_rows($result_buy);
                            ?>
                            
                             
-                            <!-- <p class="text-center hiplink"><a href="all_products.php">SHOW MORE</a></p>  -->        
+                                
                          </div>
                     </div></center>
              
@@ -105,5 +100,5 @@ $resultcat_count =  mysqli_num_rows($result_buy);
                   }
                 </style>
   <?php
-    @include ('footer.php');
+    include ('footer.php');
   ?>

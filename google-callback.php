@@ -1,68 +1,64 @@
 <?php
+require_once 'vendor/autoload.php';
+require_once 'connection.php'; // Include your database connection file
+
 session_start();
-require __DIR__ . '/vendor/autoload.php';
 
-use League\OAuth2\Client\Provider\Google;
+$client = new Google_Client();
+$client->setClientId('447405879086-3c54rtubopq6enrq6pphdm7rignffkqm.apps.googleusercontent.com');
+$client->setClientSecret('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');
+$client->setRedirectUri('http://localhost/Projects/Giftkart/google-callback.php');
+$client->addScope('email');
+$client->addScope('profile');
 
-$googleProvider = new Google([
-    'clientId'     => 'YOUR_GOOGLE_CLIENT_ID',
-    'clientSecret' => 'YOUR_GOOGLE_CLIENT_SECRET',
-    'redirectUri'  => 'http://localhost/Projects/Giftkart/google-callback.php',
-]);
+if (isset($_GET['code'])) {
+    $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+    $client->setAccessToken($token);
 
-if (!empty($_GET['error'])) {
-    header('Location: login.php?error=' . htmlspecialchars($_GET['error']));
-    exit;
-}
+    // Fetch user profile info from Google
+    $google_service = new Google_Service_Oauth2($client);
+    $user_info = $google_service->userinfo->get();
 
-if (empty($_GET['state']) || ($_GET['state'] !== $_SESSION['oauth2state'])) {
-    unset($_SESSION['oauth2state']);
-    echo 'Invalid state';
-    exit;
-}
+    $google_id = $user_info->id;
+    $name = $user_info->name;
+    $email = $user_info->email;
+    $profile_pic = $user_info->picture;
 
-try {
-    $token = $googleProvider->getAccessToken('authorization_code', [
-        'code' => $_GET['code'],
-    ]);
+    // Check if user exists in the database
+    $check_user = "SELECT * FROM buyers WHERE google_id = '$google_id' OR buyer_email = '$email'";
+    $result = mysqli_query($con, $check_user);
 
-    $googleUser = $googleProvider->getResourceOwner($token);
-    $googleUserData = $googleUser->toArray();
-
-    if (!isset($googleUserData['name'], $googleUserData['email'])) {
-        throw new Exception('Missing required user details');
-    }
-
-    include "connection.php";
-    $email = $googleUserData['email'];
-    $stmt = $con->prepare("SELECT * FROM buyers WHERE buyer_email = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        $user = $result->fetch_assoc();
-        $_SESSION["user"] = $user;
+    if (mysqli_num_rows($result) > 0) {
+        // User exists, log them in
+        $user = mysqli_fetch_assoc($result);
+        $_SESSION['buyer_id'] = $user['buyer_id'];
+        $_SESSION['buyer_email'] = $user['buyer_email'];
+        $_SESSION['buyer_name'] = $user['buyer_name'];
+        $_SESSION['buyer_image'] = $user['buyer_image'];
     } else {
-        $name = $googleUserData['name'];
-        $image = $googleUserData['picture'];
-        $stmt = $con->prepare("INSERT INTO buyers (buyer_name, buyer_email, buyer_image) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $name, $email, $image);
-        $stmt->execute();
+        // New user, register them in the database
+        $add_user = "INSERT INTO buyers (
+            buyer_name, buyer_email, buyer_password, buyer_country, buyer_city, buyer_address, buyer_phone, 
+            buyer_image, social_id, social_provider, google_id
+        ) VALUES (
+            '$name', '$email', '', '', '', '', '', 
+            '$profile_pic', '$google_id', 'Google', '$google_id'
+        )";
 
-        $_SESSION["user"] = [
-            'buyer_name'  => $name,
-            'buyer_email' => $email,
-            'buyer_image' => $image,
-        ];
+        if (mysqli_query($con, $add_user)) {
+            $_SESSION['buyer_id'] = mysqli_insert_id($con);
+            $_SESSION['buyer_email'] = $email;
+        } else {
+            echo "<script>alert('Error: Unable to register user.');</script>";
+            echo "<script>window.open('register.php', '_self');</script>";
+            exit();
+        }
     }
 
-    header('Location: index.php');
-    exit;
-} catch (Exception $e) {
-    error_log('OAuth Error: ' . $e->getMessage());
-    header('Location: login.php?error=auth_failed');
-    exit;
+    // Redirect to the homepage or dashboard
+    echo "<script>window.open('index.php', '_self');</script>";
+    exit();
+} else {
+    echo 'Authentication failed!';
 }
 ?>
-

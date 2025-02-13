@@ -4,23 +4,6 @@ include('header.php');
 require __DIR__ . '/vendor/autoload.php';
 include"connection.php";
 
-use League\OAuth2\Client\Provider\Google;
-use League\OAuth2\Client\Provider\Facebook;
-
-// Google OAuth Configuration
-$googleProvider = new Google([
-    'clientId'     => 'YOUR_GOOGLE_CLIENT_ID',
-    'clientSecret' => 'YOUR_GOOGLE_CLIENT_SECRET',
-    'redirectUri'  => 'http://localhost/Projects/Giftkart/google-callback.php',
-]);
-
-// Facebook OAuth Configuration
-$facebookProvider = new Facebook([
-    'clientId'        => 'YOUR_FACEBOOK_APP_ID',
-    'clientSecret'    => 'YOUR_FACEBOOK_APP_SECRET',
-    'redirectUri'     => 'http://localhost/Projects/Giftkart/facebook-callback.php',
-    'graphApiVersion' => 'v15.0', // Use the latest version of the Graph API
-]);
 
 if(isset($_SESSION["user"]))
 {
@@ -50,16 +33,6 @@ else
 
 }
 
-
-
-// Generate Google login URL
-$googleAuthUrl = $googleProvider->getAuthorizationUrl();
-$_SESSION['oauth2state_google'] = $googleProvider->getState();
-
-// Generate Facebook login URL
-$facebookAuthUrl = $facebookProvider->getAuthorizationUrl();
-$_SESSION['oauth2state_facebook'] = $facebookProvider->getState();
-
 ?>
 
 
@@ -88,12 +61,15 @@ $_SESSION['oauth2state_facebook'] = $facebookProvider->getState();
 </p>
 
                                 <hr>
-                <a href="<?= $googleAuthUrl ?>" class="btn btn-primary btn-block">
-                    Login with Google
-                </a>
-                <a href="<?= $facebookAuthUrl ?>" class="btn btn-info btn-block">
+                                <div class="container text-center mt-5">
+        <h1>Login with Google</h1>
+        <button id="google-login-btn" class="btn btn-danger btn-lg mt-3">
+            <i class="fab fa-google"></i> Login with Google
+        </button>
+    </div>
+                <!-- <a href="" class="btn btn-info btn-block">
                     Login with Facebook
-                </a>
+                </a> -->
                         </div>
                        
                     </div>
@@ -102,6 +78,6 @@ $_SESSION['oauth2state_facebook'] = $facebookProvider->getState();
 
 <?php 
 
-@include('footer.php');
+include('footer.php');
 
 ?>

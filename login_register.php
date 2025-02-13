@@ -75,7 +75,14 @@ if(isset($_POST['register'])){
                                     <button type="submit" name="loginsubmit" class="btn btn-default">LOGIN</button>
                                   
                                 </form>
+                   
                             </div>
+                            <div class="container text-center mt-5">
+        <h1>Login with Google</h1>
+        <button id="google-login-btn" class="btn btn-danger btn-lg mt-3">
+            <i class="fab fa-google"></i> Login with Google
+        </button>
+    </div>
                         </div>
                         <div class="col-md-6">
                             <h3>Register</h3>

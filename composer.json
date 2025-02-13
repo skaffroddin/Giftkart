@@ -2,6 +2,8 @@
     "require": {
         "league/oauth2-client": "^2.8",
         "league/oauth2-google": "^4.0",
-        "league/oauth2-facebook": "^2.2"
+        "league/oauth2-facebook": "^2.2",
+        "razorpay/razorpay": "^2.9",
+        "google/apiclient": "^2.12"
     }
 }

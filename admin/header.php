@@ -34,10 +34,8 @@ if(!isset($_SESSION["user"]))
 <div id="header" style="background-color: #002347">
   
 </div>
-<!--close-Header-part--> 
 
 
-<!--top-Header-menu-->
 <div id="user-nav" style="background-color: #002347">
   <ul >
     
