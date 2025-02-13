@@ -12,6 +12,10 @@ GiftKart is a vibrant and user-friendly e-commerce platform for purchasing gifts
 - Secure login for registered users.
 - Support for both email and password authentication.
 
+### Social Login (Google API)
+- Login using Google account for faster and secure access.
+- Integrated with Google OAuth 2.0 API for seamless authentication.
+
 ### Forgot Password
 - Password reset feature with email verification.
 
@@ -25,6 +29,15 @@ GiftKart is a vibrant and user-friendly e-commerce platform for purchasing gifts
 
 ### Profile Management
 - Update personal details like name, email, and password from the user dashboard.
+
+---
+
+## Payment Features
+
+### Razorpay Payment Gateway
+- Secure and seamless payment processing with Razorpay integration.
+- Supports multiple payment methods, including UPI, credit/debit cards, and net banking.
+- Real-time payment status updates and error handling.
 
 ---
 
@@ -59,10 +72,13 @@ GiftKart is a vibrant and user-friendly e-commerce platform for purchasing gifts
   - Pending and completed orders.
 
 ### ChatBot
-- Chatbot
-  
+- Chatbot for assisting users and enhancing customer support.
 
 
+### Razorpay Payment Gateway
+- Secure and seamless payment processing with Razorpay integration.
+- Supports multiple payment methods, including UPI, credit/debit cards, and net banking.
+- Real-time payment status updates and error handling.
 ---
 
 ## Tech Stack
@@ -70,9 +86,11 @@ GiftKart is a vibrant and user-friendly e-commerce platform for purchasing gifts
 - **Frontend**: HTML, CSS, Bootstrap, JavaScript
 - **Backend**: PHP (Laravel Framework)
 - **Database**: MySQL
-<<<<<<< HEAD
+- **Payment Gateway**: Razorpay
+- **Social Login**: Google API (OAuth 2.0)
 - **Version Control**: Git, GitHub
-- **Live link- giftkart.infy.uk
-=======
-- **Version Control**: Git, GitHub Action
 
+---
+
+## Live Demo
+- **Live Link**: [GiftKart](http://giftkart.infy.uk)
